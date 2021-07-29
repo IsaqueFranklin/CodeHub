@@ -6,6 +6,8 @@ import firebase, { FirebaseContext } from './firebase'
 import Login from './authentication/Login'
 import ForgotPassword from './authentication/ForgotPassword'
 import Home from './components/Home'
+import CreateLink from './components/CreateLink'
+
 
 function App() {
 
@@ -21,6 +23,7 @@ function App() {
             <Route path='/login'component={Login} />
             <Route path='/forgot' component={ForgotPassword} />
             <Route path='/home' component={Home} />
+            <Route path='/create' component={CreateLink} />
           </Switch>
         </div>
       </div>
