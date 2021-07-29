@@ -93,7 +93,7 @@ function CreateLink(props) {
                 <Form.Group id="content">
                     <Form.Label>Code snippet</Form.Label>
                     <CKEditor
-                    style={{ height: 400, }}
+                    style={{ height: 400, backgroundColor: '#fff' }}
                     className=""
                     editor={ ClassicEditor }
                     data={snippet}
@@ -108,7 +108,7 @@ function CreateLink(props) {
                 <Form.Group id="content">
                     <Form.Label>Description</Form.Label>
                     <CKEditor
-                    style={{ height: 400, }}
+                    style={{ height: 400, backgroundColor: '#fff' }}
                     className=""
                     editor={ ClassicEditor }
                     data={description}

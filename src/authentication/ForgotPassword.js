@@ -25,8 +25,8 @@ function ForgotPassword() {
 
     return (
         <CenteredContainer>
-            <Card className="">
-                <Card.Body className="border">
+            <Card border="dark">
+                <Card.Body>
                     <Form className="flex flex-column">
                     <h2 className="titulo">Esqueceu sua senha?</h2>
                     <Form.Group id="email">

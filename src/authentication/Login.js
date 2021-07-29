@@ -25,7 +25,7 @@ function Login(props){
             login
                 ? await firebase.login(email, password)
                 : await firebase.register(name, email, password)
-            props.history.push('/')
+            props.history.push(`/${email}`)
         } catch(err) {
             console.error('Authentication error!')
             setFirebaseError(err.message)
@@ -34,9 +34,10 @@ function Login(props){
 
     return (
         <CenteredContainer>
-            <Card className="">
-                <Card.Body className="border">
+            <Card border="dark">
+                <Card.Body>
                     <h2 className="titulo">{login ? "Login" : "Crie sua conta"}</h2>
+                    <br></br>
                     <Form onSubmit={handleSubmit} className="flex flex-column">
                     {!login && (
                     <>
@@ -53,6 +54,7 @@ function Login(props){
                         className="input" />
                     </Form.Group>
                     {errors.name && <p className="error-text">{errors.name}</p>}
+                    <br></br>
                     </>
                     )}
 
@@ -69,7 +71,7 @@ function Login(props){
                         className={errors.email ? 'error-input' : "input"} />
                     </Form.Group>
                     {errors.email && <p className="error-text">{errors.email}</p>}
-
+                    <br></br>
                     <Form.Group id="password">
                         <Form.Label>Senha</Form.Label>
                         <Form.Control
@@ -83,7 +85,7 @@ function Login(props){
                     </Form.Group>
                     {errors.password && <p className="error-text">{errors.password}</p>}
                     {firebaseError && <p className='error-text'>{firebaseError}</p>}
-
+                    <br></br>
                     <button type="submit" className="" disbaled={isSubmitting}>
                             {login ? "Entrar" : "Criar conta"}
                         </button>

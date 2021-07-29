@@ -7,6 +7,7 @@ import Login from './authentication/Login'
 import ForgotPassword from './authentication/ForgotPassword'
 import Home from './components/Home'
 import CreateLink from './components/CreateLink'
+import Profile from './components/Profile'
 
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
             <Route path='/forgot' component={ForgotPassword} />
             <Route path='/home' component={Home} />
             <Route path='/create' component={CreateLink} />
+            <Route path='/:postId' component={Profile} />
           </Switch>
         </div>
       </div>

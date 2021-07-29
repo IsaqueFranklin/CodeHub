@@ -7,9 +7,10 @@ function Home(){
         <Container>
             <CenteredContainer>
                 <Container className="centralizado">
+                    <img src="img/final.png" alt="logo icon" className="pageImage" />
                     <h2>CodeSpace</h2>
                     <p>Save your most used code snippets and share them.</p>
-                    <button style={{ alignSelf: 'center' }}>First steps</button>
+                    <a href="/login"><button>First steps</button></a>
                 </Container>
             </CenteredContainer>
         </Container>
