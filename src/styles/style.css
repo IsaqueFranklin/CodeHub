@@ -1,0 +1,33 @@
+/*Classes gerais usadas em todo o app*/
+.centralizado {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    align-items: center;
+    align-self: center;
+}
+
+button {
+    padding: 6px 10px;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+    margin-top: 20px;
+    border: transparent;
+    border-radius: 5px;
+    font-size: 15px;
+    background-color: black;
+    color: white;
+}
+
+button:hover {
+    background-color:#040714;
+    color: #fff;
+}
+
+.border {
+    border: transparent;
+}
+
+/*Classes usadas na Home*/
+

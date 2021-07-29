@@ -34,8 +34,8 @@ function Login(props){
 
     return (
         <CenteredContainer>
-            <Card className="midia">
-                <Card.Body className="midia2">
+            <Card className="">
+                <Card.Body className="border">
                     <h2 className="titulo">{login ? "Login" : "Crie sua conta"}</h2>
                     <Form onSubmit={handleSubmit} className="flex flex-column">
                     {!login && (
@@ -85,7 +85,7 @@ function Login(props){
                     {firebaseError && <p className='error-text'>{firebaseError}</p>}
 
                     <button type="submit" className="" disbaled={isSubmitting}>
-                            Entrar
+                            {login ? "Entrar" : "Criar conta"}
                         </button>
                         <button type="button" className="" onClick={() => setLogin(prevLogin => !prevLogin)}>
                             {login ? "Ainda não tem uma conta?" : "Já tem uma conta?"}
