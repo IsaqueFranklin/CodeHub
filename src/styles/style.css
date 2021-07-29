@@ -23,13 +23,18 @@ button {
 button:hover {
     background-color:#040714;
     color: #fff;
+    transition: transform .2s;
+    transform: scale(1.1);
 }
 
 .pageImage {
     height: 150px;
     width: 150px;
     margin: 50px;
+    transition: transform .2s;
 }
 
 /*Classes usadas na Home*/
-
+.pageImage:hover {
+    transform: scale(1.3);
+}
