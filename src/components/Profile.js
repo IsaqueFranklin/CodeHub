@@ -44,15 +44,19 @@ function Profile(props) {
     function handleVote() {
         if(!user) {
             props.history.push('/login')
+        }
+        
+        if(firebase.db.collection('users').where('followers.email', '==', user.email)) {
+            props.history.push('/')
         } else {
             const voteRef = firebase.db.collection('users').doc(users.id)
             voteRef.get().then(doc => {
                 if (doc.exists) {
-                    const previousVotes = doc.data().follows;
-                    const vote = { follows: { id: user.uid, name: user.displayName, email: user.email }}
+                    const previousVotes = doc.data().followers;
+                    const vote = { followers: { id: user.uid, name: user.displayName, email: user.email }}
                     const updatedVotes = [...previousVotes, vote]
                     const voteCount = updatedVotes.length
-                    voteRef.update({ follows : updatedVotes, voteCount }).then(() => {window.location.reload()})
+                    voteRef.update({ followers : updatedVotes, voteCount }).then(() => {window.location.reload()})
                 }
             })
         }

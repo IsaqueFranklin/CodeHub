@@ -31,7 +31,7 @@ class Firebase {
         firebase.db.collection('users').add(newDoc)
 
         return await newUser.user.updateProfile({
-            name: name
+            displayName: name,
         })
     }
 
