@@ -1,3 +1,16 @@
+/*Classes fo Header*/
+.bar {
+    background-color: #f3f3f3;
+}
+
+Navbar {
+    color: #fff;
+}
+
+Nav {
+    padding: 15px;
+}
+
 /*Classes gerais usadas em todo o app*/
 .centralizado {
     justify-content: center;

@@ -22,6 +22,7 @@ function Profile(props) {
       getUser();
       getInitialPosts();
     }, [])
+
   
     function getUser() {
       postRef.get()
@@ -46,10 +47,8 @@ function Profile(props) {
             props.history.push('/login')
         }
         
-        if(firebase.db.collection('users').where('followers.email', '==', user.email)) {
-            props.history.push('/')
-        } else {
             const voteRef = firebase.db.collection('users').doc(users.id)
+            const votingRef = firebase.db.collection('users').doc(user.uid)
             voteRef.get().then(doc => {
                 if (doc.exists) {
                     const previousVotes = doc.data().followers;
@@ -59,7 +58,15 @@ function Profile(props) {
                     voteRef.update({ followers : updatedVotes, voteCount }).then(() => {window.location.reload()})
                 }
             })
-        }
+            votingRef.get().then(doc => {
+                if(doc.exists){
+                    const previousVotes = doc.data().followers;
+                    const vote = { following: { id: postRef.id, name: postRef.name, email: postRef.email }}
+                    const updatedVotes = [...previousVotes, vote]
+                    const voteCount = updatedVotes.length
+                    voteRef.update({ following : updatedVotes, voteCount }).then(() => {window.location.reload()})
+                }
+            })
     }
 
     return !users ? (

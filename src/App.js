@@ -8,6 +8,7 @@ import ForgotPassword from './authentication/ForgotPassword'
 import Home from './components/Home'
 import CreateLink from './components/CreateLink'
 import Profile from './components/Profile'
+import Header from './components/Header'
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
   return (
     <BrowserRouter>
     <FirebaseContext.Provider value={{user, firebase}}>
+    <Header />
       <div className="app-container">
         <div className="route-container">
           <Switch>
