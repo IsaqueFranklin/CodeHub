@@ -4,7 +4,7 @@ import format from 'date-fns/format'
 import FirebaseContext from '../firebase/context'
 import { Container, Card, Row, Col } from 'react-bootstrap'
 import {Helmet} from "react-helmet";
-
+import SnippetContainer from './SnippetContainer'
 
 function Profile(props) {
     
@@ -34,7 +34,7 @@ function Profile(props) {
     }
 
     function getInitialPosts() {
-        firebase.db.collection('posts').where('postedBy.email', '==', postId).get().then(snapshot => {
+        firebase.db.collection('snippets').where('postedBy.email', '==', postId).get().then(snapshot => {
             const posts = snapshot.docs.map(doc => {
                 return { id: doc.id, ...doc.data()}
             })
@@ -104,6 +104,14 @@ function Profile(props) {
                 </Card.Body>
             </Card>
             </Container>
+            <div style={{ opacity: loading ? 0.25 : 1}}>
+                {posts.map((post) => (
+                    <SnippetContainer key={post.id} showcount={true} post={post} />
+                ))}
+                <br></br>
+                <br></br>
+                <br></br>
+            </div>
         </Container>
         </>
     )

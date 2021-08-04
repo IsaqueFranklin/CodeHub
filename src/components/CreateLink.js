@@ -22,19 +22,18 @@ function CreateLink(props) {
 
     const { handleSubmit, handleChange, values, errors } = useFormValidation(INITIAL_STATE, validateCreateLink, handleCreateLink)
     const [snippet, setSnippet] = useState("")
-    const [description, setDescription] = useState("")
 
 
     function handleCreateLink() {
         if(!user) {
             props.history.push('/login')
         } else {
-            const { title, thumbImg } = values
+            const { title, thumbImg, description } = values
             const newPost = {
                 title,
                 snippet: snippet,
-                description: description,
-                thumbImg: thumbImg,
+                description,
+                thumbImg,
                 postedBy: {
                     id: user.uid,
                     name: user.displayName,
@@ -105,18 +104,16 @@ function CreateLink(props) {
                 </Form.Group>
                 {errors.text && <p className="error-text">{errors.text}</p>}
                 <br></br>
-                <Form.Group id="content">
+                <Form.Group id="description">
                     <Form.Label>Description</Form.Label>
-                    <CKEditor
-                    style={{ height: 400, backgroundColor: '#fff' }}
-                    className=""
-                    editor={ ClassicEditor }
-                    data={description}
-                    onChange={(event, editor) => {
-                        const data = editor.getData();
-                        setDescription(data);
-                    }}
-                    />
+                    <Form.Control
+                    onChange={handleChange}
+                    values={values.description}
+                    name="description"
+                    placeholder="Description of the snippet"
+                    autoComplete="off"
+                    type="text"
+                    className={errors.description && 'error-input'} />
                 </Form.Group>
                 {errors.description && <p className="error-text">{errors.description}</p>}
                 <br></br>
